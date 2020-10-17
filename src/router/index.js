@@ -1,11 +1,10 @@
 import Vue from  'vue';
 import Router from 'vue-router';
 
-// import Index from '@/components/Index'
-// import Detail from '@/components/Detail'
 
 const Index = () => import('@/components/Index')
 const Detail = () => import('@/components/Detail')
+const Item = () => import('@/components/Item')
 
 Vue.use(Router);
 
@@ -17,6 +16,7 @@ export default function createRouter() {
         routes: [
             {path: '/', component: Index},
             {path: '/detail', component: Detail},
+            {path: '/item', component: Item},
         ]
     })
 }

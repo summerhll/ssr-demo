@@ -12,7 +12,7 @@ const clientManifest = require('../dist/client/vue-ssr-client-manifest.json');
 const renderer = createBundleRenderer(serverBundle, {
     runInNewContext: false,
     template: fs.readFileSync('../public/index.temp.html', 'utf-8'), // 宿主模板文件， 最好使用绝对路径
-    clientManifest
+    clientManifest //客户端构建 manifest
 })
 
 // 中间件处理静态文件请求
