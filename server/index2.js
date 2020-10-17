@@ -11,7 +11,7 @@ const serverBundle = require('../dist/server/vue-ssr-server-bundle.json');
 const clientManifest = require('../dist/client/vue-ssr-client-manifest.json');
 const renderer = createBundleRenderer(serverBundle, {
     runInNewContext: false,
-    template: fs.readFileSync('../public/index.temp.html', 'utf-8'), // 宿主模板文件
+    template: fs.readFileSync('../public/index.temp.html', 'utf-8'), // 宿主模板文件， 最好使用绝对路径
     clientManifest
 })
 
@@ -22,6 +22,7 @@ app.use(express.static('../dist/client', {index: false}))
 // 路由处理交给vue
 app.get("*", async (req, res) => {
   try {
+    //染上下文对象
       const context = {
           url: req.url,
           title: 'ssr test'
